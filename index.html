@@ -101,7 +101,10 @@
           /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
           /* PUT ANY CHANGES TO THE JAVASCRIPT HERE  */
-          
+          var bcanvas = document.getElementById('myCanvas2'); //this line defines the variable for my blue canvas
+          var bcontext = bcanvas.getContext('2d') //this line calls for the canvas to be the context
+
+         var imagedata = context.getImageData(0,0,600,500); // this line tells us the pixels data so that we can extract the blue parts of our image
           
           
           
@@ -135,6 +138,7 @@
       <div id="messageDisplayArea"></div>
       
       <canvas id="myCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
+      <canvas id= "myCanvas2" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
       <script> /* This script initiates the cavas and puts the text on the canvas "myCanvas" */
         var canvas = document.getElementById('myCanvas');
         var context = canvas.getContext("2d");
