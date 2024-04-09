@@ -105,6 +105,14 @@
           var bcontext = bcanvas.getContext('2d') //this line calls for the canvas to be the context
 
          var imagedata = context.getImageData(0,0,600,500); // this line tells us the pixels data so that we can extract the blue parts of our image
+         
+         for(let i=0; i<imagedata.data.length; i+=4) // this goes through every pixel and changes the RG value of the RGB term to zero, to display only blue
+          {
+           imagedata.data[i] = 0; 
+           imagedata.data[i+1] = 0;
+          }
+
+         bcontext.putImageData(imagedata,0,0); // changes image so that every one of the pixels is blue and the image turns blue
           
           
           
@@ -142,6 +150,8 @@
       <script> /* This script initiates the cavas and puts the text on the canvas "myCanvas" */
         var canvas = document.getElementById('myCanvas');
         var context = canvas.getContext("2d");
+
+  
         context.font = '20pt Calibri';
         context.fillStyle = "black";
         context.fillText("Original image will go here", 10, 20);
